@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package echoPackage;
+
+message EchoMessage {
+    string value = 1;
+}
+message EchosList{
+    repeated EchoMessage echo = 1;
+}
+message Empty {}
+//unary req , res classic req => <= res
+//clientStream  => data strwam =?> server
+//server stream => data strem => client
+// bidistream => data stream server , server response data stream client
+service EchoService {
+    rpc EchoUnary (EchoMessage) returns (EchoMessage);
+    rpc EchoClientStream (stream EchoMessage) returns (EchosList);
+    rpc EchoServerStream (Empty) returns (stream EchoMessage);
+    rpc dateTime (stream EchoMessage) returns (stream EchoMessage);
+}
+

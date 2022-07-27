@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "course.proto";
+message Person {
+    int32 id = 1;
+    reserved 2, 3;
+    reserved "firstName", "lastName";
+    string firstName1 = 2;
+    string lastName2 = 3;
+    bool isActive = 4;
+    float height = 5;
+    bytes image = 6; //the image field
+    repeated string phoneNumbers = 7; // array of phones
+    enum Skills {
+        BACKEND = 0;
+        PROGRAMMER = 1;
+        FRONTEND = 2;
+        NODEJS = 3;
+        REACT = 4;
+    }
+    Skills skill = 8;
+    Date birthday = 9;
+    pckageCourse.Course course = 10;
+}
+message Date {
+    int32 Year = 1;
+    int32 Month = 2;
+    int32 Day = 3;
+    int32 week = 4;
+    string time = 5;
+}

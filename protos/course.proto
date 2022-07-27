@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package pckageCourse;
+
+message Course {
+    int32 id = 1;
+    string title = 2;
+    string price = 3;
+}
